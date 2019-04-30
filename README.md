@@ -96,7 +96,11 @@ First, we are going to check all the horizontals, and to do that we need a loop 
 
 Next, we do a similar process for vertical wins this essentially the opposite of what we did for the horizontal wins. I recommend you copy and past the previous section and make the following adjustments. All that’s needed is to make row count – 3 and add to the n loop instead of the i test and run to see if it works.
 
+
 Now we have to check for a diagonal win, which once again is similar to before instead we add + 1 to the column count the row count and two loops because we are checking for the positively shaped slopes.
+
+![ConnectFour(1 5)](https://user-images.githubusercontent.com/22968181/56984126-37a2a200-6b7d-11e9-82ef-293549d44cfa.PNG)
+
 
 ```python
 def winning_move(board, piece):
