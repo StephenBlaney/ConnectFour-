@@ -84,3 +84,44 @@ while not game_over:
     turn += 1
     turn = turn % 2
 ```
+# Step 2: Winning the game
+
+The problem we have now is that there is no way for the game to tell us that it’s won so we need to program that aspect next. To do this we need to add a function called ```winning_move():``` and have that take in the board and piece as an argument. There is a number of different ways to implement this. The way we are going to do this is not the most efficient way out there but bear in mind this is for users who only have a beginners knowledge in python, what I’m going to do is to manually check each individual position(verticals, horizontals and diagonals ) and check to see if there’s a winning combination.
+
+First, we are going to check all the horizontals, and to do that we need a loop that iterates over the columns and another loop within it that will loop over the rows. Now when you look at the board you can see that you can only win a game in the middle positions vertically speaking so we need to subtract 3 from our COLUMN_COUNT in the loop. Now to see if we can win the game vertically we need to get the current 2 loop positions column and row and see if they = a piece and increment the n loop by 1,2,3 to check the vertical positions for a token and return true if they all contain a token. So when the user wins a game we need to go to the main game loop and say when the ```winning_move():``` method is called  (meaning a game has been won) print player has won and set the game_over variable to True and the main game loop will terminate and the program will finish.
+
+Next, we do a similar process for vertical wins this essentially the opposite of what we did for the horizontal wins. I recommend you copy and past the previous section and make the following adjustments. All that’s needed is to make row count – 3 and add to the n loop instead of the i test and run to see if it works.
+
+Now we have to check for a diagonal win, which once again is similar to before instead we add + 1 to the column count the row count and two loops because we are checking for the positively shaped slopes.
+
+```python
+def winning_move(board, piece):
+    # check horizontal locations for win
+
+    for i in range(COLUMN_COUNT - 3):
+        for n in range(ROW_COUNT):
+            if board[n][i] == piece and board[n][i + 1] == piece and board[n][i +2] and board[n][i+ 3] == piece:
+                return True
+
+    # check vertical locations for wins
+    for i in range(COLUMN_COUNT):
+        for n in range(ROW_COUNT - 3):
+            if board[n][i] == piece and board[n + 1][i] == piece and board[n + 2][i] and board[n + 3][i] == piece:
+                return True
+
+    # Check positive slopped diagonal locations for wins
+    for i in range(COLUMN_COUNT - 3):
+        for n in range(ROW_COUNT - 3):
+            if board[n][i] == piece and board[n + 1][i + 1] == piece and board[n + 2][i + 2] and board[n + 3][i +3] == piece:
+                return True
+
+
+    # Check negatively sloped diaganols
+    for c in range(COLUMN_COUNT-3):
+        for r in range(3, ROW_COUNT):
+            if board[r][c] == piece and board[r-1][c+1] == piece and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
+                return True
+
+
+```
+
