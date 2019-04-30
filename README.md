@@ -8,7 +8,12 @@ The first thing you need to think about is what is the best way to represent a c
 
 So we define a function called ```create_board()``` that will take no inputs. Now we need to import a package called Numpy that will help us in creating our matrix. Now if you don’t already have this installed you can open your command line and type ```pip install numpy```. We start by making a matrix with all zeros using ```board = np.zeros((6,7))``` our inputs are the dimensions of our board as discussed earlier, simply return the board for a print out to test . Having all zeros is good as it’s our initial state of the game. When you print out the return board you should see the following on your CMD.
 
+![ConnectFour(Part One)](https://user-images.githubusercontent.com/22968181/56972053-3c0d9180-6b62-11e9-8e4f-e542c2f7bf38.PNG)
+
+
 Now we need to create our main game loop this is where all the logic of our program will be placed. So, when the game is not in a game over state do the following actions. The game will run forever if this game_over variable is false and it’s only ever true when we have a connect four, so we need to create this variable. We have two players in this game player 1 and player 2 so we need to create another variable to tell us who’s turn is who’s. So, back in our loop when the turn is a certain value it’s a player turn.  When it’s player ones turn, I ask for their input now seeing how we are starting off with a command line based we’ll be taking in numbers from the keyboard. Now we need to convert the col variable to an int as its currently a string which won’t do. Now make the same changes for player two. We then increment our turn variable and mod divide by 2 in order to alternate our player turns. Run it to see if it works.
+
+
 
 Now what we want is to make a selection and drop our piece into the board, so we create a number of functions starting with ```drop_piece():``` which does that it says on the tin. We also create a second method called ```is_valid_location()``` which checks to make sure the user input is a correct value, accounting for minus numbers and numbers that exceed the range of our matrix. Finally we finish with ```get_next_open_row():``` Now all these methods will work together to create our game. We start by passing our board and col into our ```is_valid_location()``` method.
 
