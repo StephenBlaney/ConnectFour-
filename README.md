@@ -22,6 +22,7 @@ We need to figure out if a selected row chosen by the user is free or not so if 
 
 Next we have to actually drop the piece and this of course will all take place within our ```drop_piece()``` method this need to take in the board, row, col, and piece arguments and all we do is that we get the position that is valid and drop the piece in. To get this all to work fluently we need to start using these methods within our main game loop  (while loop) so where we left off if ```is_valid_location(board, col)``` is true and valid then we create our row that is intilaised to 0 ```get_next_open_row():``` (which checks for valid rows) and once those checks have been done we use the ```drop_piece():``` method to well drop the piece. Now we repeat for player two.
 
+
 After we done with the player turn, we need to print out the board to show the changes. Run and check for errors. Now one issue you may have noticed is that our piece are at the time of the board are working our way down we know that’s not how gravity works so to fix this we need to add an additional function called ```print_board():``` and all that’s going to do is change the orientation of the board.
 
 ![Connectfour(1 3)](https://user-images.githubusercontent.com/22968181/56972308-ad4d4480-6b62-11e9-84e9-6a4bee63f696.PNG)
@@ -89,6 +90,9 @@ while not game_over:
 The problem we have now is that there is no way for the game to tell us that it’s won so we need to program that aspect next. To do this we need to add a function called ```winning_move():``` and have that take in the board and piece as an argument. There is a number of different ways to implement this. The way we are going to do this is not the most efficient way out there but bear in mind this is for users who only have a beginners knowledge in python, what I’m going to do is to manually check each individual position(verticals, horizontals and diagonals ) and check to see if there’s a winning combination.
 
 First, we are going to check all the horizontals, and to do that we need a loop that iterates over the columns and another loop within it that will loop over the rows. Now when you look at the board you can see that you can only win a game in the middle positions vertically speaking so we need to subtract 3 from our COLUMN_COUNT in the loop. Now to see if we can win the game vertically we need to get the current 2 loop positions column and row and see if they = a piece and increment the n loop by 1,2,3 to check the vertical positions for a token and return true if they all contain a token. So when the user wins a game we need to go to the main game loop and say when the ```winning_move():``` method is called  (meaning a game has been won) print player has won and set the game_over variable to True and the main game loop will terminate and the program will finish.
+
+![ConnectFour(1 4)](https://user-images.githubusercontent.com/22968181/56983992-e72b4480-6b7c-11e9-9b10-5d2f6ec936f9.PNG)
+
 
 Next, we do a similar process for vertical wins this essentially the opposite of what we did for the horizontal wins. I recommend you copy and past the previous section and make the following adjustments. All that’s needed is to make row count – 3 and add to the n loop instead of the i test and run to see if it works.
 
