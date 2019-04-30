@@ -22,4 +22,7 @@ We need to figure out if a selected row chosen by the user is free or not so if 
 
 Next we have to actually drop the piece and this of course will all take place within our ```drop_piece()``` method this need to take in the board, row, col, and piece arguments and all we do is that we get the position that is valid and drop the piece in. To get this all to work fluently we need to start using these methods within our main game loop  (while loop) so where we left off if ```is_valid_location(board, col)``` is true and valid then we create our row that is intilaised to 0 ```get_next_open_row():``` (which checks for valid rows) and once those checks have been done we use the ```drop_piece():``` method to well drop the piece. Now we repeat for player two.
 
-After we done with the player turn, we need to print out the board to show the changes. Run and check for errors. Now one issue you may have noticed is that our piece are at the time of the board are working our way down we know that’s not how gravity works so to fix this we need to add an additional function called ```print_board():``` and all that’s going to do is change the orientation of the board.   
+After we done with the player turn, we need to print out the board to show the changes. Run and check for errors. Now one issue you may have noticed is that our piece are at the time of the board are working our way down we know that’s not how gravity works so to fix this we need to add an additional function called ```print_board():``` and all that’s going to do is change the orientation of the board.
+
+![Connectfour(1 3)](https://user-images.githubusercontent.com/22968181/56972308-ad4d4480-6b62-11e9-84e9-6a4bee63f696.PNG)
+
