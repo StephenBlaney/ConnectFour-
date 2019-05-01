@@ -147,7 +147,7 @@ To start we are going to iterate through the board with a loop for rows and colu
 
 
 ![connectFour(1 7)](https://user-images.githubusercontent.com/22968181/57017977-653d2900-6c19-11e9-9b9b-673d954f8ddf.PNG)
-```
+```python
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
 
