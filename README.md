@@ -186,3 +186,4 @@ An additional feature we are going to add is a scroll wheel token on top of our 
 
 That’s it you now how a fully functioning connect four game. 
 
+![Capture](https://user-images.githubusercontent.com/22968181/57029328-51092400-6c39-11e9-8678-c2cbb9de0a6b.PNG)
