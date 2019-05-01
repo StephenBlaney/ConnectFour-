@@ -143,4 +143,28 @@ The screen pops out for a second which is what is expected at his point so what 
 
 The first event we are going to focus on is Mouse button down which drops a certain piece on the screen. So instead of reading in the column we want to drop in the piece like we did with our CMD version no it’s going to be populated by where we click instead. First place all of code for player 1 and 2 input into that if statement. Now when we run this you can see that our screen remains. Now that we have that working we need to start working on our ```draw_board():```  method and make our graphics.  We are going to draw a rectangle as a background for our board and then colour the rectangle blue. Then we need to create our piece that we drop in alternating between the colours to distinguish between player 1 and player 2.
 
-To start we are going to iterate through the board with a loop for rows and columns. We draw a blue rectangle that will be the background in our board. We need to create a blue Global variable to represent the colour of this rectangle this take in an RGB value. We need to create the rectangle location so we multiple i by the square size which gives us the top right-hand corner of the shape on the x axis and to get the y axis we multiple r by the squaresize. Next, we specified the length and width of our rectangle as squaresize by squaresize (100, 100). Call the method with the board and to up date pygame you need ```pygame.display.update():``` Now we need to cut out the holes in the blue rectangle to represent our slots. We do this similar to how we create the rectangle shape in pygame, defining black as a global for the holes the first two parameters for the circle method are the same as rectangle with surface and colour and location, but we need to define a Radius in our global variables. Our radius is going to be a little less than our squaresize/2 - 5 you kind of play around these numbers but this is what works for me. The location of 
+To start we are going to iterate through the board with a loop for rows and columns. We draw a blue rectangle that will be the background in our board. We need to create a blue Global variable to represent the colour of this rectangle this take in an RGB value. We need to create the rectangle location so we multiple i by the square size which gives us the top right-hand corner of the shape on the x axis and to get the y axis we multiple r by the squaresize. Next, we specified the length and width of our rectangle as squaresize by squaresize (100, 100). Call the method with the board and to up date pygame you need ```pygame.display.update():``` Now we need to cut out the holes in the blue rectangle to represent our slots. We do this similar to how we create the rectangle shape in pygame, defining black as a global for the holes the first two parameters for the circle method are the same as rectangle with surface and colour and location, but we need to define a Radius in our global variables. Our radius is going to be a little less than our squaresize/2 - 5 you kind of play around these numbers but this is what works for me. The location of our holes we’ll need to add are squaresize plus squaresize and divide by 2 and we slot in our radius as the last argument. Run the application and you should have the board up and running. 
+
+
+![connectFour(1 7)](https://user-images.githubusercontent.com/22968181/57017977-653d2900-6c19-11e9-9b9b-673d954f8ddf.PNG)
+```
+BLUE = (0, 0, 255)
+BLACK = (0, 0, 0)
+
+def draw_board(board):
+    for i in range(COLUMN_COUNT):
+        for n in range(ROW_COUNT):
+            pygame.draw.rect(screen, BLUE, (i * SQUARESIZE, n * SQUARESIZE+SQUARESIZE, SQUARESIZE, SQUARESIZE))
+            pygame.draw.circle(screen, BLACK, (int(i * SQUARESIZE + SQUARESIZE / 2), int(n * SQUARESIZE + SQUARESIZE + SQUARESIZE / 2)), RADIUS)
+            
+            
+while not game_over:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            continue
+            
+            
+```  
