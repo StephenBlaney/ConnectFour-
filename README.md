@@ -177,3 +177,5 @@ Starting off navigate down to the main game loop. Last time we had the user inpu
 
 Last time we had to flip our board using the flip method during our CDM and we have to do that again for our graphical version so what we need to do is where we are building our height we need to subtract and we do that in the ```draw_board():``` method. 
 Next what we are going to do is to create another loop at this will separate the board loop from the token loop as we are currently getting a few glitches currently with the board. 
+
+![Connectfour(2 0)](https://user-images.githubusercontent.com/22968181/57029137-c45e6600-6c38-11e9-8f2e-a03dab845bba.PNG)
