@@ -179,3 +179,10 @@ Last time we had to flip our board using the flip method during our CDM and we h
 Next what we are going to do is to create another loop at this will separate the board loop from the token loop as we are currently getting a few glitches currently with the board. 
 
 ![Connectfour(2 0)](https://user-images.githubusercontent.com/22968181/57029137-c45e6600-6c38-11e9-8f2e-a03dab845bba.PNG)
+
+# Step 5: Additional features
+
+An additional feature we are going to add is a scroll wheel token on top of our application this will let us know who turn it is.  We create an event conditional for when event equals mouse motion ```posx = event.pos[0]``` which is where every our mouse is and if the turn == 0 (player 1) draw a red circle else draw a yellow circle don’t forget to update. Next feature is that we want some of notification that tells the player they have won. So, we create our font object and set the parameters as monospace and size 57. Now to render that on the screen horizontally we create a label where we had our text congratulating the player 	instead we take that out and write label = myfont.render(“Player 1 wins !!!” 1, RED) 1 justifies it and red cause it player 1 colour.We can update a certain part of the screen with our new label by using the blit method and we use that to set the label. Repeat for player 2.
+
+That’s it you now how a fully functioning connect four game. 
+
